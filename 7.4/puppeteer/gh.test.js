@@ -1,9 +1,9 @@
 let page;
 
-//beforeEach(async () => {
- // page = await browser.newPage();
+beforeEach(async () => {
+  page = await browser.newPage();
  // await page.goto("https://github.com/team");
-//});
+});
 
 afterEach(() => {
  page.close();
@@ -11,7 +11,6 @@ afterEach(() => {
 
 describe("Github page tests", () => {
   beforeEach(async () => {
-    page = await browser.newPage();
     await page.goto("https://github.com/team");
   });
  
@@ -40,11 +39,11 @@ describe("Github page tests", () => {
 
 describe("Another titles in Github page. Task_2 Puppeteer before and after hooks", () => {
   beforeEach(async () => {
-    page = await browser.newPage();
     await page.goto("https://github.com/pricing");
   });
 
   test("The h1 header content'", async () => {
+    await page.goto("https://github.com/pricing");
     const firstLink = await page.$("header div div a");
     await firstLink.click();
     await page.waitForSelector('h1');
