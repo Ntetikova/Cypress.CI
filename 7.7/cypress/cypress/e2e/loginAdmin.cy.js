@@ -11,8 +11,7 @@ describe("Testing authorization", () => {
         loginAdmin.forEach((test) => {
             cy.get(test.email).type(test.login),
             cy.get(test.password).type(test.pass),
-            cy.get(test.button).click();
-        
+            cy.get(test.button).click();        
             cy.contains("Управление залами").should("be.visible");
         });        
     });
